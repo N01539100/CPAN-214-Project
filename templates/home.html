@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Welcome to the Bookstore</h1>
+<div>
+    {% for book in books %}
+    <div>
+        <hr>
+        <h2>{{ book.title }}</h2>
+        <p>Author: {{ book.author }}</p>
+        <p>Year: {{ book.year }}</p>
+        <p>Rating: {{ book.rating }}</p>
+        <a href="{% url 'book_detail' book.id %}">View Details</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

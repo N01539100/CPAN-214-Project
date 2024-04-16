@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% if book %}
+    <h1>Edit Book {{ book.title }}</h1>
+    {% else %}
+    <h1>Add Book</h1>
+    {% endif %}
+    
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if book %}Update{% else %}Add{% endif %} Book</button>
+</form>
+{% endblock %}
